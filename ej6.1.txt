@@ -1,0 +1,51 @@
+1.       La clase que define las excepciones en Java es "Exception", y cualquier clase que queramos usar para representar una excepción debe heredar de esta clase.
+
+ 
+
+2.       La clase que representa las excepciones que se producen al invocar un método de un objeto cuyo valor es "null" es "NullPointerException".
+
+ 
+
+3.       La clase que representa las excepciones que se producen al obtener un comportamiento anómalo en la entrada/salida de información es "IOException".
+
+ 
+
+4.       En el siguiente fragmento de código se produciría una excepción de tipo "NullPointerException", ya que se está intentando acceder a la propiedad "length" de un objeto que no ha sido inicializado en la posición 3 del array.
+
+ 
+
+5.       En este fragmento de código se produciría una excepción de tipo "NumberFormatException", ya que se está intentando convertir una cadena que no representa un número entero en un valor entero.
+
+ 
+
+6.       El método recibe una cadena y una posición como parámetros. Si la posición está dentro del rango válido de la cadena, se devuelve el carácter en la posición correspondiente utilizando el método "charAt(b)" de la clase "String". Si la posición está fuera del rango válido de la cadena, se construye y lanza una excepción de tipo "Exception".
+
+public class ej6_1 {
+    public static void main(String[] args) {
+ /*
+ String[] array_string=new String[25];
+ System.out.println(array_string[3].length());
+ */
+ /*
+ String aux = "hola";
+ int aux2 = Integer.parseInt (aux);
+ */
+            System.out.println("Inicio del programa");
+            try{
+                String ex1="Hola caracola";
+                int ex2=30;
+                System.out.println("Caracter: "+caracterEn(ex1,ex2));
+            }catch (StringIndexOutOfBoundsException ser){
+                ser.printStackTrace();
+                ser.getMessage();
+            }finally {
+                System.out.println("FIN DE LA EJECUCIÓN DEL PROGRAMA");
+            }
+        }
+        public static char caracterEn(String a,int b){
+            if (b<0&&b>a.length()){
+                throw new StringIndexOutOfBoundsException("Fuera de la cadena");
+            }else
+                return a.charAt(b);
+    }
+}
